@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const Restaurants = () => {
-    return (
-        <div>
-            Restaurant Page
-        </div>
-    )
-}
+  useProtectedPage();
+  return <div>Restaurant Page</div>;
+};
 
-export default Restaurants
+export default Restaurants;
