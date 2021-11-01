@@ -10,109 +10,109 @@ import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 import { BASE_URL } from "../../constants/urls";
 
 const SignUpPage = () => {
-  useUnprotectedPage();
-  const [form, onChange, clear] = useForm({
-    name: "",
-    email: "",
-    cpf: "",
-    password: "",
-  });
+    useUnprotectedPage();
+    const [form, onChange, clear] = useForm({
+        name: "",
+        email: "",
+        cpf: "",
+        password: "",
+    });
 
-  const history = useHistory();
+    const history = useHistory();
 
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-    signUp();
-  };
+    const onSubmitForm = (event) => {
+        event.preventDefault();
+        signUp();
+    };
 
-  const signUp = () => {
-    axios
-      .post(`${BASE_URL}/signup`, form)
-      .then((res) => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.token);
-        clear();
-        goToAddress(history);
-      })
-      .catch((err) => {
-        console.log("deu erro", err);
-      });
-  };
-  return (
-    <ScreenContainer>
-      <img src={logoFutureEatsInvert} alt="logo Rappi4" />
-      <InputsContainer>
-        <TextSignUp>Cadastrar</TextSignUp>
-        <form onSubmit={onSubmitForm}>
-          <TextField
-            type={"text"}
-            name={"name"}
-            value={form.name}
-            onChange={onChange}
-            label={"Nome:"}
-            variant={"outlined"}
-            margin={"normal"}
-            fullWidth
-            required
-          />
+    const signUp = () => {
+        axios
+            .post(`${BASE_URL}/signup`, form)
+            .then((res) => {
+                console.log(res.data);
+                localStorage.setItem("token", res.data.token);
+                clear();
+                goToAddress(history);
+            })
+            .catch((err) => {
+                console.log("deu erro", err);
+            });
+    };
+    return (
+        <ScreenContainer>
+            <img src={logoFutureEatsInvert} alt="logo Rappi4" />
+            <InputsContainer>
+                <TextSignUp>Cadastrar</TextSignUp>
+                <form onSubmit={onSubmitForm}>
+                    <TextField
+                        type={"text"}
+                        name={"name"}
+                        value={form.name}
+                        onChange={onChange}
+                        label={"Nome:"}
+                        variant={"outlined"}
+                        margin={"normal"}
+                        fullWidth
+                        required
+                    />
 
-          <TextField
-            type={"email"}
-            name={"email"}
-            value={form.email}
-            onChange={onChange}
-            label={"E-mail:"}
-            variant={"outlined"}
-            margin={"normal"}
-            fullWidth
-            required
-          />
+                    <TextField
+                        type={"email"}
+                        name={"email"}
+                        value={form.email}
+                        onChange={onChange}
+                        label={"E-mail:"}
+                        variant={"outlined"}
+                        margin={"normal"}
+                        fullWidth
+                        required
+                    />
 
-          <TextField
-            type={"text"}
-            name={"cpf"}
-            value={form.cpf}
-            onChange={onChange}
-            label={"CPF:"}
-            variant={"outlined"}
-            margin={"normal"}
-            fullWidth
-            required
-          />
+                    <TextField
+                        type={"text"}
+                        name={"cpf"}
+                        value={form.cpf}
+                        onChange={onChange}
+                        label={"CPF:"}
+                        variant={"outlined"}
+                        margin={"normal"}
+                        fullWidth
+                        required
+                    />
 
-          <TextField
-            type={"password"}
-            name={"password"}
-            value={form.password}
-            onChange={onChange}
-            label={"Senha:"}
-            variant={"outlined"}
-            margin={"normal"}
-            fullWidth
-            required
-          />
-          <TextField
-            type={"password"}
-            name={"comfirm"}
-            label={"Confirmar:"}
-            variant={"outlined"}
-            margin={"normal"}
-            fullWidth
-            required
-          />
-          <Button
-            type={"submit"}
-            fullWidth
-            variant={"contained"}
-            color={"primary"}
-            margin={"normal"}
-          >
-            Fazer Cadastro!
-          </Button>
-        </form>
-      </InputsContainer>
-    </ScreenContainer>
-  );
+                    <TextField
+                        type={"password"}
+                        name={"password"}
+                        value={form.password}
+                        onChange={onChange}
+                        label={"Senha:"}
+                        variant={"outlined"}
+                        margin={"normal"}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        type={"password"}
+                        name={"comfirm"}
+                        label={"Confirmar:"}
+                        variant={"outlined"}
+                        margin={"normal"}
+                        fullWidth
+                        required
+                    />
+                    <Button
+                        type={"submit"}
+                        fullWidth
+                        variant={"contained"}
+                        color={"primary"}
+                        margin={"normal"}
+                    >
+                        Fazer Cadastro!
+                    </Button>
+                </form>
+            </InputsContainer>
+        </ScreenContainer>
+    );
 };
 
 export default SignUpPage;
