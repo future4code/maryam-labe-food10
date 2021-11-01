@@ -8,6 +8,7 @@ import FeedPage from "../Pages/Feed/FeedPage";
 import ProfilePage from "../Pages/Profile/ProfilePage";
 import ShopCart from "../Pages/ShopCart/ShopCart";
 import InitialLoading from "../Pages/InitialLoading/InitialLoadingPage";
+import AddressPage from "../Pages/Address/AddressPage";
 
 const Router = () => {
   return (
@@ -21,6 +22,9 @@ const Router = () => {
         </Route>
         <Route exact path="/cadastro">
           <SignUpPage/>
+        </Route>
+        <Route exact path="/cadastro/endereco">
+          <AddressPage/>
         </Route>
         <Route exact path="/feed">
           <FeedPage/>
