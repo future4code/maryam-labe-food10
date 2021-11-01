@@ -25,3 +25,7 @@ export const goToRestaurants = (history) => {
 export const goToInitialLoading = (history) => {
     history.push('/')
 }
+
+export const goToAddress = (history)=> {
+    history.push('/cadastro/endereco')
+}
