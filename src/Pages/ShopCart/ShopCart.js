@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const ShopCart = () => {
-    return (
-        <div>
-            ShopCart Page
-        </div>
-    )
-}
+  useProtectedPage();
+  return <div>ShopCart Page</div>;
+};
 
-export default ShopCart
+export default ShopCart;

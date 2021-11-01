@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const FeedPage = () => {
-    return (
-        <div>
-            Feed Page
-        </div>
-    )
-}
+  useProtectedPage();
+  return <div>Feed Page</div>;
+};
 
-export default FeedPage
+export default FeedPage;

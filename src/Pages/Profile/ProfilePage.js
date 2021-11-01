@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const ProfilePage = () => {
-    return (
-        <div>
-            Profile Page
-        </div>
-    )
-}
+  useProtectedPage();
+  return <div>Profile Page</div>;
+};
 
-export default ProfilePage
+export default ProfilePage;
