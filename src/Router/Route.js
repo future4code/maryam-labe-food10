@@ -9,37 +9,45 @@ import ProfilePage from "../Pages/Profile/ProfilePage";
 import ShopCart from "../Pages/ShopCart/ShopCart";
 import InitialLoading from "../Pages/InitialLoading/InitialLoadingPage";
 import AddressPage from "../Pages/Address/AddressPage";
+import UpDateProfile from "../Pages/UpDateProfile/UpDadeProfile";
+import UpDateAddress from "../Pages/UpDateAddress/UpDateAddressPage";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/'>
-            <InitialLoading/>
+          <InitialLoading />
         </Route>
         <Route exact path="/login">
-          <LoginPage/>
+          <LoginPage />
         </Route>
         <Route exact path="/cadastro">
-          <SignUpPage/>
+          <SignUpPage />
         </Route>
-        <Route exact path="/cadastro/endereco">
-          <AddressPage/>
+        <Route exact path="/endereço">
+          <AddressPage />
         </Route>
         <Route exact path="/feed">
-          <FeedPage/>
+          <FeedPage />
         </Route>
         <Route exact path="/perfil">
-          <ProfilePage/>
+          <ProfilePage />
         </Route>
         <Route exact path="/restaurantes">
-          <Restaurants/>
+          <Restaurants />
         </Route>
         <Route exact path="/carrinho">
-          <ShopCart/>
+          <ShopCart />
+        </Route>
+        <Route exact path="/perfil/update">
+          <UpDateProfile />
+        </Route>
+        <Route exact path="/endereço/update">
+          <UpDateAddress />
         </Route>
         <Route>
-          <ErrorPage/>
+          <ErrorPage />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -27,5 +27,13 @@ export const goToInitialLoading = (history) => {
 }
 
 export const goToAddress = (history)=> {
-    history.push('/cadastro/endereco')
+    history.push('/endereço')
+}
+
+export const goToUpDateProfile = (history) => {
+    history.push('/perfil/update')
+}
+
+export const goToUpDateAddress = (history) => {
+    history.push('/endereço/update')
 }
