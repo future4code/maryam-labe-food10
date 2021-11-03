@@ -34,8 +34,8 @@ const Router = () => {
         <Route exact path="/perfil">
           <ProfilePage />
         </Route>
-        <Route exact path="/restaurantes">
-          <Restaurants />
+        <Route exact path="/restaurantes/:id">
+          <Restaurants/>
         </Route>
         <Route exact path="/carrinho">
           <ShopCart />

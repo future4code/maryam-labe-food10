@@ -7,7 +7,8 @@ import axios from "axios";
 import { goToAddress } from "../../Router/Coordinator";
 import { useHistory } from "react-router";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
-import { BASE_URL } from "../../constants/urls";
+// import { BASE_URL } from "../../Constants/urls";
+import {BASE_URL} from '../../constants/urls'
 
 const SignUpPage = () => {
     useUnprotectedPage();

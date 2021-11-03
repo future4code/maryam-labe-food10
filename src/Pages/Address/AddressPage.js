@@ -109,7 +109,6 @@ const AddressPage = () => {
                         variant={"outlined"}
                         margin={"normal"}
                         fullWidth
-                        required
                     />
                      <Button
                         type={"submit"}
