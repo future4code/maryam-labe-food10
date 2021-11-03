@@ -37,3 +37,7 @@ export const goToUpDateProfile = (history) => {
 export const goToUpDateAddress = (history) => {
     history.push('/endereço/update')
 }
+
+export const goToBack = (history) => {
+    history.go()
+}

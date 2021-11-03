@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
+import Header from "../../Header/Header";
 import useForm from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { goToProfile } from "../../Router/Coordinator";
@@ -54,6 +55,8 @@ const UpDateProfile = () => {
     }
 
     return (
+        <div>
+            <Header />
         <ScreenContainer>
             <InputsContainer>
                 <p>Editar Perfil</p>
@@ -103,6 +106,7 @@ const UpDateProfile = () => {
                 </form>
             </InputsContainer>
         </ScreenContainer>
+        </div>
     )
 };
 
