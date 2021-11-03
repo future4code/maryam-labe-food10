@@ -1,28 +1,31 @@
-import React, {useState, useEffect} from 'react'
-import useRequestData from '../hooks/useRequestData'
-import { URL } from '../constants/URL'
-import GlobalStateContext from './GlobalStateContext'
-
+import React, { useState, useEffect } from "react";
+import useRequestData from "../hooks/useRequestData";
+import { URL } from "../constants/URL";
+import GlobalStateContext from "./GlobalStateContext";
+import InitialLoading from "../components/InitialLoading/InitialLoadingPage";
 
 const GlobalState = (props) => {
+  const [cart, setCart] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
+  const [appLoaded, setAppLoaded] = useState(false);
 
-    const [cart, setCart] = useState([])
-    const [restaurants, setRestaurants] = useState([])
+  const getRestaurants = useRequestData([], `${URL}/restaurants`);
 
-    const getRestaurants = useRequestData([], `${URL}/restaurants`)
-    // console.log("Teste", restaurants)
-    
-    useEffect(() => {
-        setRestaurants(getRestaurants.restaurants)
-    }, [getRestaurants])
+  useEffect(() => {
+    setRestaurants(getRestaurants.restaurants);
 
-    const data = {cart, setCart, restaurants}
+    setTimeout(() => {
+      setAppLoaded(true);
+    }, 2000);
+  }, [getRestaurants]);
 
-    return (
-        <GlobalStateContext.Provider value={data}>
-            {props.children}
-        </GlobalStateContext.Provider>
-    )
-}
+  const data = { cart, setCart, restaurants };
 
-export default GlobalState
+  return (
+    <GlobalStateContext.Provider value={data}>
+      {appLoaded ? props.children : <InitialLoading />}
+    </GlobalStateContext.Provider>
+  );
+};
+
+export default GlobalState;
