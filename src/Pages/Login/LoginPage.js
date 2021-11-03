@@ -1,6 +1,6 @@
 import { useHistory } from "react-router";
 import React from "react";
-import logo2 from "../../assets/logo2.png";
+import logo from "../../assets/logo.png";
 import LoginForm from "./LoginForm";
 import Button from "@material-ui/core/Button";
 import { goToSignUp } from "../../Router/Coordinator";
@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   return (
     <LoginContainer>
-      <img src={logo2} />
+      <img src={logo} />
       <TextSignUp>Entrar</TextSignUp>
       <LoginForm />
       <Button

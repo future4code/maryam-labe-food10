@@ -9,12 +9,13 @@ export const ContainerForm = styled.form`
 
 export const LoginContainer = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 120px;
 
   img {
-    width: 70vw;
+    width: 30vw;
     max-width: 350px;
   }
 

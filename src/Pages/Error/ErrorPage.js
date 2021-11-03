@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import errorPage from "../../assets/errorPage.png";
+import { ErroContainer } from "./styled";
 
 const ErrorPage = () => {
-    return (
-        <div>
-            Error Page
-        </div>
-    )
-}
+  return (
+    <ErroContainer>
+      <img src={errorPage} />
+    </ErroContainer>
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;
