@@ -23,10 +23,14 @@ const SignUpPage = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        signUp();
+        if(form.password !== form.confirm){
+            alert("As senhas não estão iguais")
+        }else{
+            signUp(form, history, clear);
+        }
     };
 
-    const signUp = () => {
+    const signUp = (form, history, clear) => {
         axios
             .post(`${BASE_URL}/signup`, form)
             .then((res) => {
@@ -94,7 +98,9 @@ const SignUpPage = () => {
                     />
                     <TextField
                         type={"password"}
-                        name={"comfirm"}
+                        name={"confirm"}
+                        value={form.confirm}
+                        onChange={onChange}
                         label={"Confirmar:"}
                         variant={"outlined"}
                         margin={"normal"}
