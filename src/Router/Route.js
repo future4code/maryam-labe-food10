@@ -14,7 +14,7 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/'>
-            <InitialLoading/>
+          <InitialLoading/>
         </Route>
         <Route exact path="/login">
           <LoginPage/>
@@ -28,7 +28,7 @@ const Router = () => {
         <Route exact path="/perfil">
           <ProfilePage/>
         </Route>
-        <Route exact path="/restaurantes">
+        <Route exact path="/restaurantes/:id">
           <Restaurants/>
         </Route>
         <Route exact path="/carrinho">

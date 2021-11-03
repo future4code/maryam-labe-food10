@@ -18,8 +18,8 @@ export const goToShopCart = (history) => {
     history.push('/carrinho')
 }
 
-export const goToRestaurants = (history) => {
-    history.push('/restaurantes')
+export const goToRestaurants = (history, id) => {
+    history.push(`/restaurantes/${id}`)
 }
 
 export const goToInitialLoading = (history) => {

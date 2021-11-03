@@ -1,11 +1,13 @@
 import React from 'react';
 import Route from './Router/Route'
+import GlobalState from './Global/GlobalState';
 
 function App() {
+
   return (
-    <div>
+    <GlobalState>
       <Route/>
-    </div>
+    </GlobalState>
   );
 }
 
