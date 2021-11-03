@@ -1,15 +1,14 @@
-import { ThemeProvider } from '@material-ui/styles';
-import React from 'react';
-import theme from './constants/theme';
-import Route from './Router/Route'
-import GlobalState from './Global/GlobalState';
+import { ThemeProvider } from "@material-ui/styles";
+import React, { useContext } from "react";
+import theme from "./constants/theme";
+import Route from "./Router/Route";
+import GlobalState from "./Global/GlobalState";
 
 function App() {
-
   return (
     <GlobalState>
       <ThemeProvider theme={theme}>
-        <Route/>
+        <Route />
       </ThemeProvider>
     </GlobalState>
   );
