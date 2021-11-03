@@ -56,7 +56,7 @@ const UpDateProfile = () => {
     return (
         <ScreenContainer>
             <InputsContainer>
-                <p>Editar</p>
+                <p>Editar Perfil</p>
                 <form onSubmit={onSubmitForm}>
                     <TextField 
                         type={"text"}
