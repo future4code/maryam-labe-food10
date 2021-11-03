@@ -11,12 +11,18 @@ const ShopCartCard = () => {
 
     const {cart, setCart} = useContext(GlobalStateContext)
 
-    const removeFromCart = (productId) => {
-        const newCart = cart.filter((product) => {
-            if (productId !== product.id) {
-                return product
-            }
+    const removeFromCart = (product) => {
+        const position = cart.findIndex((item) => {
+            return item.id === product.id
         })
+
+        let newCart = [...cart]
+
+        if (newCart[position].amount === 1) {
+            newCart.splice(position, 1)
+        } else {
+            newCart[position].amount -= 1
+        }
         setCart(newCart)
     }
 
@@ -24,7 +30,8 @@ const ShopCartCard = () => {
         return <div key={product.id}>
             <ImagemCarrinho src={product.photoUrl}/>
             <h4>{product.name}</h4>
-            <button onClick={() => removeFromCart(product.id)}>Remover</button>
+            <p>{product.amount} X</p>
+            <button onClick={() => removeFromCart(product)}>Remover</button>
         </div>
     })
 

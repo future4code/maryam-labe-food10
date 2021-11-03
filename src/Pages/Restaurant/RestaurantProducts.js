@@ -12,7 +12,17 @@ const RestaurantProducts = (props) => {
     const {cart, setCart} = useContext(GlobalStateContext)
 
     const addToCart = (detail) => {
-        let newCart = [...cart, detail]
+        const position = cart.findIndex((item) => {
+            return detail.id === item.id
+        })
+
+        let newCart = [...cart]
+
+        if (position === -1) {
+            newCart.push({...detail, amount: 1})
+        } else {
+            newCart[position].amount += 1
+        }
         setCart(newCart)
     }
 
