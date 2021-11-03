@@ -1,8 +1,11 @@
 import React from 'react'
 import Footer from '../../Footer/Footer'
 import ShopCartCard from './ShopCartCard'
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const ShopCart = () => {
+
+    useProtectedPage()
 
     return (
         <div>
@@ -14,4 +17,4 @@ const ShopCart = () => {
     )
 }
 
-export default ShopCart
+export default ShopCart;

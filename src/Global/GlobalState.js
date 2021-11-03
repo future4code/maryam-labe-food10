@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import useRequestData from '../Hooks/useRequestData'
-import { URL } from '../Constants/URL'
+import useRequestData from '../hooks/useRequestData'
+import { URL } from '../constants/URL'
 import GlobalStateContext from './GlobalStateContext'
 
 

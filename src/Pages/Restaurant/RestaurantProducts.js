@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
-import useRequestData from '../../Hooks/useRequestData'
-import {URL} from '../../Constants/URL'
+import useRequestData from '../../hooks/useRequestData'
+import {URL} from '../../constants/URL'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import { Typography } from '@material-ui/core'
 import { CardContent } from '@material-ui/core'

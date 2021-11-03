@@ -1,15 +1,19 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { URL } from '../../Constants/URL'
+import { URL } from '../../constants/URL'
 import RestaurantProducts from './RestaurantProducts'
-import useRequestData from '../../Hooks/useRequestData'
+import useRequestData from '../../hooks/useRequestData'
 import Footer from '../../Footer/Footer'
 import { Typography } from '@material-ui/core'
 import { CardContent } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
 import { Card } from '@material-ui/core'
+import useProtectedPage from "../../hooks/useProtectedPage";
+
 
 const Restaurants = () => {
+
+    useProtectedPage();
 
     const params = useParams()
 
@@ -67,4 +71,4 @@ const Restaurants = () => {
     )
 }
 
-export default Restaurants
+export default Restaurants;

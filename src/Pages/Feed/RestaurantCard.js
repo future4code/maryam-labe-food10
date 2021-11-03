@@ -1,6 +1,6 @@
 import React from 'react'
-import { URL } from '../../Constants/URL'
-import useRequestData from '../../Hooks/useRequestData'
+import { URL } from '../../constants/URL'
+import useRequestData from '../../hooks/useRequestData'
 import { goToRestaurants } from '../../Router/Coordinator'
 import { useHistory } from 'react-router-dom'
 import { Typography } from '@material-ui/core'

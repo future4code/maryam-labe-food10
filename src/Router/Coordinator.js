@@ -25,3 +25,15 @@ export const goToRestaurants = (history, id) => {
 export const goToInitialLoading = (history) => {
     history.push('/')
 }
+
+export const goToAddress = (history)=> {
+    history.push('/endereço')
+}
+
+export const goToUpDateProfile = (history) => {
+    history.push('/perfil/update')
+}
+
+export const goToUpDateAddress = (history) => {
+    history.push('/endereço/update')
+}

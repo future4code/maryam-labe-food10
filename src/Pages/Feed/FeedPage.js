@@ -3,8 +3,11 @@ import RestaurantCard from './RestaurantCard'
 import { Box } from '@material-ui/core'
 import { TextField } from '@material-ui/core'
 import Footer from '../../Footer/Footer'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 const FeedPage = () => {
+
+    useProtectedPage()
 
     return (
         <div>
@@ -26,4 +29,4 @@ const FeedPage = () => {
     )
 }
 
-export default FeedPage
+export default FeedPage;
