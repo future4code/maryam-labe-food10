@@ -12,7 +12,9 @@ export const ProfileAddress = styled.div`
   }
 
   img {
-    width: 20px;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
   }
 `;
 export const ProfileData = styled.div`

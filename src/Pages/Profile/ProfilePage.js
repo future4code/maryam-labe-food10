@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
 import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 import useForm from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import {
@@ -12,7 +13,7 @@ import {
 } from "../../Router/Coordinator";
 import edit from "../../assets/edit.png";
 import { ProfileAddress, ProfileData, ProfileContainer } from "./styled";
-// import OrderHistory from "./OrderHistory";
+import OrderHistory from "./OrderHistory";
 
 const ProfilePage = () => {
   useProtectedPage();
@@ -57,6 +58,7 @@ const ProfilePage = () => {
 
   return (
     <ProfileContainer>
+      <Header />
       <h4>Dados:</h4>
       <ProfileData>
         <div>
@@ -77,8 +79,8 @@ const ProfilePage = () => {
         </button>
       </ProfileAddress>
 
-      <h2>Histórico de Pedidos</h2>
-      {/* <Footer /> */}
+      <OrderHistory />
+      <Footer />
     </ProfileContainer>
   );
 };

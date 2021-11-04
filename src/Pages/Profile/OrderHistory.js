@@ -3,12 +3,8 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
-import Header from "../../Header/Header";
-import useForm from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import { goToProfile } from "../../Router/Coordinator";
-import edit from "../../assets/edit.png";
-import { ProfileAddress, ProfileData, ProfileContainer } from "./styled";
+import useForm from "../../hooks/useForm";
 
 const OrderHistory = () => {
   useProtectedPage();
@@ -38,8 +34,6 @@ const OrderHistory = () => {
   return (
     <div>
       <h2>Histórico de Pedidos</h2>
-
-      {/* <Footer /> */}
     </div>
   );
 };
