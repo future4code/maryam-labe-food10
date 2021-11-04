@@ -1,43 +1,39 @@
 export const goToLogin = (history) => {
-    history.push('/login')
-}
+  history.push("/");
+};
 
 export const goToSignUp = (history) => {
-    history.push('/cadastro')
-}
+  history.push("/cadastro");
+};
 
 export const goToFeed = (history) => {
-    history.push('/feed')
-}
+  history.push("/feed");
+};
 
 export const goToProfile = (history) => {
-    history.push('/perfil')
-}
+  history.push("/perfil");
+};
 
 export const goToShopCart = (history) => {
-    history.push('/carrinho')
-}
+  history.push("/carrinho");
+};
 
 export const goToRestaurants = (history, id) => {
-    history.push(`/restaurantes/${id}`)
-}
+  history.push(`/restaurantes/${id}`);
+};
 
-export const goToInitialLoading = (history) => {
-    history.push('/')
-}
-
-export const goToAddress = (history)=> {
-    history.push('/endereço')
-}
+export const goToAddress = (history) => {
+  history.push("/endereço");
+};
 
 export const goToUpDateProfile = (history) => {
-    history.push('/perfil/update')
-}
+  history.push("/perfil/update");
+};
 
 export const goToUpDateAddress = (history) => {
-    history.push('/endereço/update')
-}
+  history.push("/endereço/update");
+};
 
 export const goToBack = (history) => {
-    history.go()
-}
+  history.go();
+};
