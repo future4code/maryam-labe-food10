@@ -16,7 +16,7 @@ const GlobalState = (props) => {
 
     setTimeout(() => {
       setAppLoaded(true);
-    }, 2000);
+    }, 1000);
   }, [getRestaurants]);
 
   const data = { cart, setCart, restaurants };
