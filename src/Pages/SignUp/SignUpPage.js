@@ -9,6 +9,7 @@ import { useHistory } from "react-router";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 // import { BASE_URL } from "../../Constants/urls";
 import {BASE_URL} from '../../constants/urls'
+import Header from "../../Header/Header";
 
 const SignUpPage = () => {
     useUnprotectedPage();
@@ -44,6 +45,8 @@ const SignUpPage = () => {
             });
     };
     return (
+        <div>
+            <Header history={history}/>
         <ScreenContainer>
             <img src={logoFutureEatsInvert} alt="logo Rappi4" />
             <InputsContainer>
@@ -119,6 +122,7 @@ const SignUpPage = () => {
                 </form>
             </InputsContainer>
         </ScreenContainer>
+        </div>
     );
 };
 

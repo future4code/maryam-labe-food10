@@ -56,7 +56,7 @@ const UpDateProfile = () => {
 
     return (
         <div>
-            <Header />
+            <Header history={history} />
         <ScreenContainer>
             <InputsContainer>
                 <p>Editar Perfil</p>

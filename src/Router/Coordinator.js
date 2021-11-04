@@ -35,5 +35,5 @@ export const goToUpDateAddress = (history) => {
 };
 
 export const goToBack = (history) => {
-  history.go();
+  history.goBack();
 };
