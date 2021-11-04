@@ -1,20 +1,23 @@
-import React from 'react'
-import { URL } from '../../constants/URL'
-import useRequestData from '../../hooks/useRequestData'
+import React, {useContext} from 'react'
 import { goToRestaurants } from '../../Router/Coordinator'
 import { useHistory } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
 import { CardContent } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
 import { Card } from '@material-ui/core'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
 
     const history = useHistory()
 
-    const restaurants = useRequestData([], `${URL}/restaurants`)
+    const {restaurants} = useContext(GlobalStateContext)
 
-    const renderRestaurants = restaurants && restaurants.restaurants && restaurants.restaurants.map((restaurant) => {
+    const selectedRestaurants = restaurants && restaurants.filter((restaurant) => {
+        return restaurant.name.toLowerCase().includes(props.search.toLowerCase())
+    })
+
+    const renderRestaurants = selectedRestaurants && selectedRestaurants.length !==0 && selectedRestaurants.map((restaurant) => {
         return <Card sx={{ maxWidth: 345 }} 
                 onClick={() => goToRestaurants(history, restaurant.id)}
                 key={restaurant.id}
@@ -38,7 +41,7 @@ const RestaurantCard = () => {
 
     return (
         <div>
-            {renderRestaurants}
+            {renderRestaurants && renderRestaurants.length !== 0 ? renderRestaurants : <h2>Não encontramos :(</h2>}
         </div>
     )
 }

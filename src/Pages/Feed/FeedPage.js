@@ -1,5 +1,6 @@
 import React from 'react'
 import RestaurantCard from './RestaurantCard'
+import useForm from '../../hooks/useForm'
 import { Box } from '@material-ui/core'
 import { TextField } from '@material-ui/core'
 import Footer from '../../Footer/Footer'
@@ -8,6 +9,10 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 const FeedPage = () => {
 
     useProtectedPage()
+
+    const [form, onChangeInput] = useForm({
+        search: ''
+    })
 
     return (
         <div>
@@ -21,9 +26,18 @@ const FeedPage = () => {
                 noValidate
                 autoComplete="off"
             >
-                <TextField id="outlined-basic" label="Busca" variant="outlined" />
+                <TextField 
+                    id="outlined-basic"
+                    name='search'
+                    value={form.search}
+                    onChange={onChangeInput}
+                    label="Busca" 
+                    variant="outlined"    
+                />
             </Box>
-            <RestaurantCard/>
+            <RestaurantCard
+                search={form.search}
+            />
             <Footer/>
         </div>
     )

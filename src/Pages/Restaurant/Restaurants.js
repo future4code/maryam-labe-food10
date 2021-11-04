@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { URL } from '../../constants/URL'
+import { BASE_URL } from '../../constants/urls'
 import RestaurantProducts from './RestaurantProducts'
 import useRequestData from '../../hooks/useRequestData'
 import Footer from '../../Footer/Footer'
@@ -17,7 +17,7 @@ const Restaurants = () => {
 
     const params = useParams()
 
-    const restaurants = useRequestData([], `${URL}/restaurants`)
+    const restaurants = useRequestData([], `${BASE_URL}/restaurants`)
 
     const renderRestaurantDetail = restaurants && restaurants.restaurants && restaurants.restaurants.map((restaurant) => {
         if (restaurant.id === params.id) {
@@ -44,17 +44,7 @@ const Restaurants = () => {
                         {restaurant.address}
                     </Typography>
                 </CardContent>
-            </Card> 
-            
-            
-            {/* <div
-                    key={restaurant.id}>
-                    <img src={restaurant.logoUrl} alt='Logo do restaurante'/>
-                    <h4>{restaurant.name}</h4>
-                    <p>{restaurant.category}</p>
-                    <p>{restaurant.deliveryTime}</p>
-                    <p>{restaurant.address}</p>
-                </div> */}
+            </Card>
         }
     })
 

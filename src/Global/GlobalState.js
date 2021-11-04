@@ -1,22 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import useRequestData from '../hooks/useRequestData'
-import { URL } from '../constants/URL'
+import { BASE_URL } from '../constants/urls'
 import GlobalStateContext from './GlobalStateContext'
 
 
 const GlobalState = (props) => {
 
+    const getRestaurants = useRequestData([], `${BASE_URL}/restaurants`)
+
     const [cart, setCart] = useState([])
     const [restaurants, setRestaurants] = useState([])
-
-    const getRestaurants = useRequestData([], `${URL}/restaurants`)
-    // console.log("Teste", restaurants)
+    const [total, setTotal] = useState(0)
     
     useEffect(() => {
         setRestaurants(getRestaurants.restaurants)
     }, [getRestaurants])
 
-    const data = {cart, setCart, restaurants}
+    const data = {cart, setCart, restaurants, total, setTotal}
 
     return (
         <GlobalStateContext.Provider value={data}>

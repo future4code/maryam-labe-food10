@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import useRequestData from '../../hooks/useRequestData'
-import {URL} from '../../constants/URL'
+import {BASE_URL} from '../../constants/urls'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import { Typography } from '@material-ui/core'
 import { CardContent } from '@material-ui/core'
@@ -26,7 +26,7 @@ const RestaurantProducts = (props) => {
         setCart(newCart)
     }
 
-    const restaurantDetails = useRequestData([], `${URL}/restaurants/${props.restaurantId}`)
+    const restaurantDetails = useRequestData([], `${BASE_URL}/restaurants/${props.restaurantId}`)
 
     const renderRestaurantDetail = restaurantDetails && restaurantDetails.restaurant && 
         restaurantDetails.restaurant.products && restaurantDetails.restaurant.products.map((detail) => {
@@ -55,16 +55,6 @@ const RestaurantProducts = (props) => {
                 <button onClick={() => addToCart(detail)}>Adicionar</button>
                 </CardContent>
             </Card>
-        
-        
-        {/* <div key={detail.id}>
-            <img src={detail.photoUrl} alt="Foto do produto"/>
-            <h4>{detail.name}</h4>
-            <h5>{detail.category}</h5>
-            <p>{detail.description}</p>
-            <p>R$ {detail.price}</p>
-            <button onClick={() => addToCart(detail)}>Adicionar</button>
-        </div> */}
     })
 
     return (

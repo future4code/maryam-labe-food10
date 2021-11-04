@@ -9,6 +9,15 @@ position: fixed;
 bottom: 0;
 display: flex;
 justify-content: space-evenly;
+align-items: center;
+height: 5vh;
+background-color: gray;
+`
+
+const NavContainer = styled.div`
+margin-top: 12px;
+width: 100vw;
+height: 5vh;
 `
 
 const Footer = () => {
@@ -16,13 +25,13 @@ const Footer = () => {
     const history = useHistory()
 
     return (
-        <div>
+        <NavContainer>
             <NavBar>
                 <button onClick={() => goToFeed(history)}>Home</button>
                 <button onClick={() => goToShopCart(history)}>Cart</button>
                 <button onClick={() => goToProfile(history)}>Profile</button>
             </NavBar>
-        </div>
+        </NavContainer>
     )
 }
 
