@@ -11,10 +11,13 @@ import { CardMedia } from '@material-ui/core'
 import { Card } from '@material-ui/core'
 import useProtectedPage from "../../hooks/useProtectedPage";
 import GlobalStateContext from '../../Global/GlobalStateContext'
+import Header from '../../Header/Header'
+import { useHistory } from 'react-router'
 
 const Restaurants = () => {
 
     useProtectedPage();
+    const history = useHistory()
 
     const params = useParams()
     const {isAmount, setIsAmount} = useContext(GlobalStateContext)
@@ -36,11 +39,11 @@ const Restaurants = () => {
             <Typography gutterBottom variant="h5" component="div">
                 {restaurant.name}
             </Typography>
+            <Typography variant="body2" color="text.secondary">
+                {restaurant.description}
+            </Typography>
             <Typography gutterBottom variant="h6" component="div">
                 {restaurant.category}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-                {restaurant.deliveryTime}
             </Typography>
             <Typography variant="body2" color="text.secondary">
                 {restaurant.address}
@@ -72,7 +75,7 @@ const Restaurants = () => {
 
     return (
         <div>
-            Restaurant Page
+            <Header history = {history} title={"Detalhes do Restaurante"}/>
             {/* {isAmount ? selectAmount : null} */}
             <hr/>
             {renderRestaurantDetail}

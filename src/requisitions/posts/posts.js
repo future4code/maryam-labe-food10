@@ -10,8 +10,9 @@ export const acceptBuy = (restaurantId, body) => {
     }
     axios.post(url, body, headers)
     .then((response) => {
-        console.log(response.data)
+        alert("O pedido foi realizado com sucesso")
     }).catch((error) => {
-        console.log(error.response)
+        console.log("erro no post ", error.response.data.message)
+        alert(error.response.data.message)
     })
 } 

@@ -3,8 +3,9 @@ import useRequestData from "../hooks/useRequestData";
 import { BASE_URL } from "../constants/urls";
 import GlobalStateContext from "./GlobalStateContext";
 import InitialLoading from "../components/InitialLoading/InitialLoadingPage";
+import axios from "axios";
 const GlobalState = (props) => {
-  const getRestaurants = useRequestData([], `${BASE_URL}/restaurants`);
+ 
 
   const [cart, setCart] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
@@ -20,12 +21,20 @@ const GlobalState = (props) => {
   });
 
   useEffect(() => {
-    setRestaurants(getRestaurants.restaurants);
+    axios.get(`${BASE_URL}/restaurants`, {
+      headers: {
+        auth: localStorage.getItem('token')
+      }
+    }).then((res)=>{
+      setRestaurants(res.data.restaurants)
+    }).catch((err)=>{
+      console.log("erro:", err)
+    })
 
     setTimeout(() => {
       setAppLoaded(true);
     }, 2000);
-  }, [getRestaurants]);
+  }, []);
   const data = {
     restaurantId,
     setRestaurantId,

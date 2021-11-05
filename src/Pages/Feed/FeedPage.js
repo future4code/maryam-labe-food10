@@ -7,10 +7,13 @@ import { TextField } from '@material-ui/core'
 import Footer from '../../Footer/Footer'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import GlobalStateContext from '../../Global/GlobalStateContext'
+import Header from '../../Header/Header'
+import { useHistory } from 'react-router'
 
 const FeedPage = () => {
 
     useProtectedPage()
+    const history = useHistory()
 
     const {isClicked, setIsClicked} = useContext(GlobalStateContext)
 
@@ -34,7 +37,7 @@ const FeedPage = () => {
 
     return (
         <div>
-            Feed Page
+            <Header title={"Rappi4"} logout={history}/>
             <hr/>
             {isClicked ? <button onClick={() => renderCards()}>Cancelar</button> : null}
             <Box
@@ -58,7 +61,7 @@ const FeedPage = () => {
             {isClicked ? makeSearch : <RestaurantCard
                 search={form.search}
             />}
-            <Footer/>
+            <Footer feed = {true}/>
         </div>
     )
 }

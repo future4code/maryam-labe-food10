@@ -2,6 +2,23 @@ import React, { useContext, useEffect } from 'react'
 import useForm from '../../hooks/useForm'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import { acceptBuy } from '../../requisitions/posts/posts'
+import { Button } from '@material-ui/core'
+import styled from 'styled-components'
+
+
+const DivButton = styled.div`
+display: flex;
+width: 70vw;
+justify-content: center;
+align-items: center;
+
+`
+const DivEsterna = styled.div`
+display: flex;
+width: 100vw;
+justify-content: center;
+align-items: center;
+`
 
 const ShopCardForm = () => {
 
@@ -25,16 +42,17 @@ const ShopCardForm = () => {
     return (
         <div>
             <form onSubmit={buy}>
-                <label for='dinheiro'>Dinheiro</label>
+                {/* <label for='dinheiro'><span>Dinheiro</span></label> */}
                 <input 
                     type='radio'
                     name='paymentMethod'
                     id='dinheiro'
                     value='money'
                     onClick={onChange}
-                /> <br/>
+                />
+                <label for='dinheiro'><span>Dinheiro</span></label> <br/>
 
-                <label for='cartão de crédito'>Cartão de crédito</label>
+                {/* <label for='cartão de crédito'><span>Cartão de crédito</span></label> */}
                 <input 
                     type='radio'
                     name='paymentMethod'
@@ -42,8 +60,18 @@ const ShopCardForm = () => {
                     value='creditcard'
                     onClick={onChange}
                 />
-
-                <button type='submit'>Confirmar</button>
+                 <label for='cartão de crédito'><span>Cartão de crédito</span></label> <br/>
+                 <br/>
+                 <DivEsterna>
+                <DivButton>
+                <Button
+                type='submit'
+                fullWidth
+                variant={"contained"}
+                color={"primary"}
+                margin={"normal"}>Confirmar</Button>
+                </DivButton>
+                </DivEsterna>
             </form>
         </div>
     )
