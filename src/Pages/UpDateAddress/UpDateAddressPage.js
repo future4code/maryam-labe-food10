@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
+import Header from "../../Header/Header";
 import useForm from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { goToProfile } from "../../Router/Coordinator";
@@ -63,9 +64,11 @@ const UpDateAddress = () => {
   }
 
   return (
+    <div>
+    <Header history={history} title = {"Editar Endereço"}/>
     <ScreenContainer>
       <InputsContainer>
-        <p>Editar Endereço</p>
+        
         <form onSubmit={onSubmitForm}>
           <TextField
             type={"text"}
@@ -144,6 +147,7 @@ const UpDateAddress = () => {
         </form>
       </InputsContainer>
     </ScreenContainer>
+    </div>
   )
 };
 

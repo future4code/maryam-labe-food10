@@ -56,10 +56,9 @@ const UpDateProfile = () => {
 
     return (
         <div>
-            <Header history={history} />
+            <Header history={history} title = {"Editar Perfil"}/>
         <ScreenContainer>
             <InputsContainer>
-                <p>Editar Perfil</p>
                 <form onSubmit={onSubmitForm}>
                     <TextField 
                         type={"text"}
