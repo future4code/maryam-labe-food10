@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
 import RestaurantProducts from './RestaurantProducts'
@@ -9,13 +10,15 @@ import { CardContent } from '@material-ui/core'
 import { CardMedia } from '@material-ui/core'
 import { Card } from '@material-ui/core'
 import useProtectedPage from "../../hooks/useProtectedPage";
-
+import GlobalStateContext from '../../Global/GlobalStateContext'
 
 const Restaurants = () => {
 
     useProtectedPage();
 
     const params = useParams()
+
+    const {isAmount, setIsAmount} = useContext(GlobalStateContext)
 
     const restaurants = useRequestData([], `${BASE_URL}/restaurants`)
 
@@ -48,15 +51,39 @@ const Restaurants = () => {
         }
     })
 
+    const chooseAmount = () => {
+        setIsAmount(true)
+    }
+
+//     const selectAmount = <div>
+//         <p>Selecione a quantidade desejada</p>
+//     <select size='1' autoFocus>
+//         <option value='1'>1</option>
+//         <option value='2'>2</option>
+//         <option value='3'>3</option>
+//         <option value='4'>4</option>
+//         <option value='5'>5</option>
+//         <option value='6'>6</option>
+//         <option value='7'>7</option>
+//         <option value='8'>8</option>
+//         <option value='9'>9</option>
+//         <option value='10'>10</option>
+//     </select>
+//     <button onClick>Adicionar</button>
+// </div>
+
     return (
         <div>
             Restaurant Page
+            {/* {isAmount ? selectAmount : null} */}
             <hr/>
             {renderRestaurantDetail}
             <Footer/>
             <RestaurantProducts
+                chooseAmount={chooseAmount}
                 restaurantId={params.id}
             />
+            
         </div>
     )
 }

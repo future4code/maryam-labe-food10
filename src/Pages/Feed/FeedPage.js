@@ -1,23 +1,42 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import useRequestData from '../../hooks/useRequestData'
 import RestaurantCard from './RestaurantCard'
 import useForm from '../../hooks/useForm'
 import { Box } from '@material-ui/core'
 import { TextField } from '@material-ui/core'
 import Footer from '../../Footer/Footer'
 import useProtectedPage from '../../hooks/useProtectedPage'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 
 const FeedPage = () => {
 
     useProtectedPage()
 
+    const {isClicked, setIsClicked} = useContext(GlobalStateContext)
+
     const [form, onChangeInput] = useForm({
         search: ''
     })
+
+    const renderOptions = () => {
+        setIsClicked(true)
+    }
+
+    const renderCards = () => {
+        setIsClicked(false)
+    }
+
+    useEffect(() => {
+        renderCards()
+    }, [form])
+
+    const makeSearch = <p>Faça sua busca</p>
 
     return (
         <div>
             Feed Page
             <hr/>
+            {isClicked ? <button onClick={() => renderCards()}>Cancelar</button> : null}
             <Box
                 component="form"
                 sx={{
@@ -32,12 +51,13 @@ const FeedPage = () => {
                     value={form.search}
                     onChange={onChangeInput}
                     label="Busca" 
-                    variant="outlined"    
+                    variant="outlined" 
+                    onClick={form.search ? null : () => renderOptions()}
                 />
             </Box>
-            <RestaurantCard
+            {isClicked ? makeSearch : <RestaurantCard
                 search={form.search}
-            />
+            />}
             <Footer/>
         </div>
     )

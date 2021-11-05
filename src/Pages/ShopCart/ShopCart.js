@@ -5,6 +5,7 @@ import ShopCartCard from './ShopCartCard'
 import useProtectedPage from "../../hooks/useProtectedPage";
 import useRequestData from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/urls';
+import ShopCardForm from './ShopCardForm';
 
 const ShopCart = () => {
 
@@ -12,12 +13,30 @@ const ShopCart = () => {
 
     const getAddress = useRequestData([], `${BASE_URL}/profile/address`)
 
+    const {confirmBuy, setConfirmBuy} = useContext(GlobalStateContext)
+    const {buyObject, setBuyObject} = useContext(GlobalStateContext)
     const {cart, total, setTotal} = useContext(GlobalStateContext)
+
+    const confirmObject = cart && cart.map((product) => {
+        return {
+            id: product.id,
+            quantity: product.quantity
+        }
+    })
+
+    useEffect(() => {
+        const newConfirmBuy = {...confirmBuy, products: buyObject}
+        buyObject && setConfirmBuy(newConfirmBuy)
+    }, [buyObject])
+
+    useEffect(() => {
+        confirmObject && setBuyObject(confirmObject)
+    }, [cart])
 
     useEffect(() => {
         let newTotal = 0
         cart.forEach((product) => {
-            newTotal += product.price * product.amount
+            newTotal += product.price * product.quantity
             setTotal(newTotal)
         })
     }, [cart])
@@ -35,23 +54,7 @@ const ShopCart = () => {
             <ShopCartCard/>
             <p>Forma de pagamento</p>
             <hr/>
-            <form>
-                <label for='dinheiro'>Dinheiro</label>
-                <input 
-                    type='radio'
-                    name='pagamento'
-                    id='dinheiro'
-                    value='dinheiro'
-                /> <br/>
-
-                <label for='cartão de crédito'>Cartão de crédito</label>
-                <input 
-                    type='radio'
-                    name='pagamento'
-                    id='cartão de crédito'
-                    value="cartão de crédito"
-                />
-            </form>
+            <ShopCardForm/>
             <Footer/>
         </div>
     )

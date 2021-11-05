@@ -41,7 +41,9 @@ const RestaurantCard = (props) => {
 
     return (
         <div>
-            {renderRestaurants && renderRestaurants.length !== 0 ? renderRestaurants : <h2>Não encontramos :(</h2>}
+            
+            {renderRestaurants && renderRestaurants.length !== 0 ? renderRestaurants : 
+            props.search.length === 0 ? renderRestaurants : <h2>Não encontramos :(</h2>}
         </div>
     )
 }

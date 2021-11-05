@@ -18,10 +18,10 @@ const ShopCartCard = () => {
 
         let newCart = [...cart]
 
-        if (newCart[position].amount === 1) {
+        if (newCart[position].quantity === 1) {
             newCart.splice(position, 1)
         } else {
-            newCart[position].amount -= 1
+            newCart[position].quantity -= 1
         }
         setCart(newCart)
     }
@@ -30,7 +30,7 @@ const ShopCartCard = () => {
         return <div key={product.id}>
             <ImagemCarrinho src={product.photoUrl}/>
             <h4>{product.name}</h4>
-            <p>{product.amount} X</p>
+            <p>{product.quantity} X</p>
             <button onClick={() => removeFromCart(product)}>Remover</button>
         </div>
     })

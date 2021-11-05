@@ -9,6 +9,7 @@ import { Card } from '@material-ui/core'
 
 const RestaurantProducts = (props) => {
 
+    const {setRestaurantId} = useContext(GlobalStateContext)
     const {cart, setCart} = useContext(GlobalStateContext)
 
     const addToCart = (detail) => {
@@ -19,11 +20,12 @@ const RestaurantProducts = (props) => {
         let newCart = [...cart]
 
         if (position === -1) {
-            newCart.push({...detail, amount: 1})
+            newCart.push({...detail, quantity: 1})
         } else {
-            newCart[position].amount += 1
+            newCart[position].quantity += 1
         }
         setCart(newCart)
+        setRestaurantId(props.restaurantId)
     }
 
     const restaurantDetails = useRequestData([], `${BASE_URL}/restaurants/${props.restaurantId}`)
@@ -55,6 +57,7 @@ const RestaurantProducts = (props) => {
                 <button onClick={() => addToCart(detail)}>Adicionar</button>
                 </CardContent>
             </Card>
+            
     })
 
     return (

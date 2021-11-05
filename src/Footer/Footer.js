@@ -1,6 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import { BASE_URL } from '../constants/urls'
+import useRequestData from '../hooks/useRequestData'
 import { goToFeed, goToProfile, goToShopCart } from '../Router/Coordinator'
 
 const NavBar = styled.nav`
@@ -24,8 +26,15 @@ const Footer = () => {
 
     const history = useHistory()
 
+    const activeOrder = useRequestData({}, `${BASE_URL}/active-order`)
+    // console.log("AQUI", activeOrder.order.totalPrice)
+
     return (
         <NavContainer>
+            <div>
+                {/* <p>{activeOrder && activeOrder.order.totalPrice}</p> */}
+                {/* <p>{activeOrder && activeOrder.order.restaurantName}</p> */}
+            </div>
             <NavBar>
                 <button onClick={() => goToFeed(history)}>Home</button>
                 <button onClick={() => goToShopCart(history)}>Cart</button>
