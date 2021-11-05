@@ -13,7 +13,7 @@ import {
 import edit from "../../assets/edit.png";
 import Footer from "../../Footer/Footer";
 import { ProfileAddress, ProfileData, ProfileContainer } from "./styled";
-// import OrderHistory from "./OrderHistory";
+import OrderHistory from "./OrderHistory";
 
 const ProfilePage = () => {
   useProtectedPage();
@@ -79,7 +79,7 @@ const ProfilePage = () => {
         </button>
       </ProfileAddress>
 
-      <h2>Histórico de Pedidos</h2>
+      <OrderHistory />
       <Footer />
     </ProfileContainer>
   );
