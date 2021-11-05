@@ -6,10 +6,13 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 import useRequestData from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/urls';
 import ShopCardForm from './ShopCardForm';
+import Header from '../../Header/Header';
+import { useHistory } from 'react-router';
 
 const ShopCart = () => {
 
     useProtectedPage()
+    const history = useHistory()
 
     const getAddress = useRequestData([], `${BASE_URL}/profile/address`)
 
@@ -45,8 +48,8 @@ const ShopCart = () => {
 
     return (
         <div>
-            ShopCart Page
-            {renderAdress}
+            <Header history={history} title={"Meu Carrinho"} logout = {history}/>
+            <p>{renderAdress}</p>
             <hr/>
             <div>
                 {cart && cart.length !== 0 ? <h3>R$ {total.toFixed(2)}</h3> : <h4>Carrinho vazio</h4>}
@@ -55,7 +58,7 @@ const ShopCart = () => {
             <p>Forma de pagamento</p>
             <hr/>
             <ShopCardForm/>
-            <Footer/>
+            <Footer ShopCart = {true}/>
         </div>
     )
 }

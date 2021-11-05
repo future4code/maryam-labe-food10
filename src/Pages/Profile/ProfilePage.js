@@ -57,8 +57,9 @@ const ProfilePage = () => {
   };
 
   return (
+    <div>
     <ProfileContainer>
-      <Header />
+      <Header history ={history} title={"Perfil"} logout ={history}/>
       <h4>Dados cadastrados:</h4>
       <ProfileData>
         <div>
@@ -80,8 +81,10 @@ const ProfilePage = () => {
       </ProfileAddress>
 
       <OrderHistory />
-      <Footer />
+      
     </ProfileContainer>
+    <Footer profile = {true}/>
+    </div>
   );
 };
 

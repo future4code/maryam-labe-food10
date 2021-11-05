@@ -5,6 +5,7 @@ export const ProfileAddress = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0 8px;
 
   button {
     border: none;
@@ -20,6 +21,7 @@ export const ProfileData = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0 8px;
 
   button {
     border: none;
@@ -34,5 +36,10 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 8px;
+  h4{
+    margin: 0 8px;
+  }
 `;
+export const DivHistory = styled.div`
+padding: 0 8px;
+`

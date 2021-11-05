@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import Footer from "../../Footer/Footer";
+import { DivHistory } from "./styled";
 
 const OrderHistory = () => {
   useProtectedPage();
@@ -48,11 +49,10 @@ const OrderHistory = () => {
   });
 
   return (
-    <div>
+    <DivHistory>
       <h2>Histórico de Pedidos</h2>
       {mappedItems}
-      <Footer />
-    </div>
+    </DivHistory>
   );
 };
 

@@ -36,7 +36,7 @@ const Header = (props) => {
                <P2> <KeyboardArrowLeft /> </P2>
             </ButtonBase> : <P></P>}
             <p>{props.title ? props.title : " "}</p>
-            {props.logout ? <ButtonBase onClick ={()=>actionLogout(props.logout)}>Logout</ButtonBase> : <P>  </P>}
+            {props.logout ? <ButtonBase onClick ={()=>actionLogout(props.logout)}><p>Logout</p></ButtonBase> : <P>  </P>}
 
 
         </Container>
