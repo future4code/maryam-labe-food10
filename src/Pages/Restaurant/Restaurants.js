@@ -17,7 +17,6 @@ const Restaurants = () => {
     useProtectedPage();
 
     const params = useParams()
-    const {isAmount, setIsAmount} = useContext(GlobalStateContext)
 
     const restaurants = useRequestData([], `${BASE_URL}/restaurants`)
 
@@ -49,9 +48,6 @@ const Restaurants = () => {
         </Card>
         }
     })
-    const chooseAmount = () => {
-        setIsAmount(true)
-    }
 
 //     const selectAmount = <div>
 //         <p>Selecione a quantidade desejada</p>
@@ -73,12 +69,10 @@ const Restaurants = () => {
     return (
         <div>
             Restaurant Page
-            {/* {isAmount ? selectAmount : null} */}
             <hr/>
             {renderRestaurantDetail}
             <Footer/>
             <RestaurantProducts
-                chooseAmount={chooseAmount}
                 restaurantId={params.id}
             />
 

@@ -21,11 +21,28 @@ const ShopCartCard = () => {
         }
         setCart(newCart)
     }
+
+    const addToCart = (product) => {
+        const position = cart.findIndex((item) => {
+            return product.id === item.id
+        })
+
+        let newCart = [...cart]
+
+        if (position === -1) {
+            newCart.push({ ...product, quantity: 1 })
+        } else {
+            newCart[position].quantity += 1
+        }
+        setCart(newCart)
+    }
+
     const renderShopCartCard = cart && cart.map((product) => {
         return <div key={product.id}>
             <ImagemCarrinho src={product.photoUrl}/>
             <h4>{product.name}</h4>
             <p>{product.quantity} X</p>
+            <button onClick={() => addToCart(product)}>Adicionar</button>
             <button onClick={() => removeFromCart(product)}>Remover</button>
         </div>
     })
