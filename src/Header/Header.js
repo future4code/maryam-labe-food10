@@ -19,13 +19,7 @@ const P2 = styled.p`
 `;
 
 const LogoutButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e86e5a;
-  background-color: white;
   color: #e86e5a;
-  border-radius: 12px;
   margin: 0 4px;
   padding: 0 8px;
 `;

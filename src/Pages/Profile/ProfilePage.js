@@ -58,32 +58,31 @@ const ProfilePage = () => {
 
   return (
     <div>
-    <ProfileContainer>
-      <Header history ={history} title={"Perfil"} logout ={history}/>
-      <h4>Dados cadastrados:</h4>
-      <ProfileData>
-        <div>
-          <p>{form.name}</p>
-          <p>{form.email}</p>
-          <p>{form.cpf}</p>
-        </div>
-        <button onClick={() => goToUpDateProfile(history)}>
-          <img src={edit} />
-        </button>
-      </ProfileData>
+      <ProfileContainer>
+        <Header history={history} title={"Perfil"} logout={history} />
+        <h4>Dados cadastrados:</h4>
+        <ProfileData>
+          <div>
+            <p>{form.name}</p>
+            <p>{form.email}</p>
+            <p>{form.cpf}</p>
+          </div>
+          <button onClick={() => goToUpDateProfile(history)}>
+            <img src={edit} />
+          </button>
+        </ProfileData>
 
-      <h4>Endereço cadastrado:</h4>
-      <ProfileAddress>
-        <p>{form.address}</p>
-        <button onClick={() => goToUpDateAddress(history)}>
-          <img src={edit} />
-        </button>
-      </ProfileAddress>
+        <h4>Endereço cadastrado:</h4>
+        <ProfileAddress>
+          <p>{form.address}</p>
+          <button onClick={() => goToUpDateAddress(history)}>
+            <img src={edit} />
+          </button>
+        </ProfileAddress>
 
-      <OrderHistory />
-      
-    </ProfileContainer>
-    <Footer profile = {true}/>
+        <OrderHistory />
+      </ProfileContainer>
+      <Footer profile={true} />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import ShopCardForm from "./ShopCardForm";
 import Header from "../../Header/Header";
 import { useHistory } from "react-router";
 import { DivWhite } from "./styled";
+import { Restaurant } from "@material-ui/icons";
 
 const ShopCart = () => {
   useProtectedPage();
@@ -57,7 +58,7 @@ const ShopCart = () => {
       <hr />
       <div>
         {cart && cart.length !== 0 ? (
-          <h3>R$ {total.toFixed(2)}</h3>
+          <h3>Subtotal: R$ {total.toFixed(2)}</h3>
         ) : (
           <h4>Carrinho vazio</h4>
         )}
