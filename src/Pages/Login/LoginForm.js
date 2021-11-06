@@ -59,6 +59,7 @@ const LoginForm = () => {
           margin={"normal"}
           required
           type={"password"}
+          id={"password"}
         />
         <Button
           type={"submit"}
