@@ -28,6 +28,21 @@ const RestaurantProducts = (props) => {
         setRestaurantId(props.restaurantId)
     }
 
+    const removeFromCart = (detail) => {
+        const position = cart.findIndex((item) => {
+            return item.id === detail.id;
+        });
+
+        let newCart = [...cart];
+
+        if (newCart[position].quantity === 1) {
+            newCart.splice(position, 1);
+        } else {
+            newCart[position].quantity -= 1;
+        }
+        setCart(newCart);
+    }
+
     const restaurantDetails = useRequestData([], `${BASE_URL}/restaurants/${props.restaurantId}`)
 
     const renderRestaurantDetail = restaurantDetails && restaurantDetails.restaurant && 
@@ -55,6 +70,7 @@ const RestaurantProducts = (props) => {
                     R$ {detail.price}
                 </Typography>
                 <button onClick={() => addToCart(detail)}>Adicionar</button>
+                <button onClick={() => removeFromCart(detail)}>Remover</button>
                 </CardContent>
             </Card>
             
