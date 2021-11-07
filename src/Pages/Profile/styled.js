@@ -6,6 +6,10 @@ export const ProfileAddress = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.23);
 
   button {
     border: none;
@@ -22,6 +26,10 @@ export const ProfileData = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 8px;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.23);
 
   button {
     border: none;
@@ -42,4 +50,13 @@ export const ProfileContainer = styled.div`
 `;
 export const DivHistory = styled.div`
 padding: 0 8px;
+
+`
+export const CardHistory = styled.div`
+padding: 0 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.23);
+
 `

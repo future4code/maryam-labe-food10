@@ -9,6 +9,14 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import Header from '../../Header/Header'
 import { useHistory } from 'react-router'
+import styled from 'styled-components'
+
+const Div = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+`
 
 const FeedPage = () => {
 
@@ -36,14 +44,13 @@ const FeedPage = () => {
     const makeSearch = <p>Faça sua busca</p>
 
     return (
-        <div>
+        <Div>
             <Header title={"Rappi4"} logout={history}/>
-            <hr/>
             {isClicked ? <button onClick={() => renderCards()}>Cancelar</button> : null}
             <Box
                 component="form"
                 sx={{
-                    '& > :not(style)': { m: 1, width: '25ch' },
+                    '& > :not(style)': { m: 1, width: '80vw' },
                 }}
                 noValidate
                 autoComplete="off"
@@ -62,7 +69,7 @@ const FeedPage = () => {
                 search={form.search}
             />}
             <Footer feed = {true}/>
-        </div>
+        </Div>
     )
 }
 

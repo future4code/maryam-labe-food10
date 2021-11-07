@@ -60,7 +60,7 @@ const ProfilePage = () => {
     <div>
       <ProfileContainer>
         <Header history={history} title={"Perfil"} logout={history} />
-        <h4>Dados cadastrados:</h4>
+        <br/><h4>Dados cadastrados:</h4>
         <ProfileData>
           <div>
             <p>{form.name}</p>
