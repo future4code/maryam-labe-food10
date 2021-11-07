@@ -19,7 +19,6 @@ const RestaurantCard = (props) => {
   const [restaurants, setRestaurants] = useState()
   const history = useHistory()
 
-  // const {restaurants} = useContext(GlobalStateContext)
   useEffect(() => {
     axios.get(`${BASE_URL}/restaurants`, {
       headers: {
@@ -28,7 +27,7 @@ const RestaurantCard = (props) => {
     }).then((res) => {
       setRestaurants(res.data.restaurants)
     }).catch((err) => {
-      console.log("erro: ", err)
+      console.log(err)
     })
   }, [])
 

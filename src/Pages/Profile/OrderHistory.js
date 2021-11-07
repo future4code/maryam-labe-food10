@@ -27,7 +27,6 @@ const OrderHistory = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.orders);
         setHistoryItems(res.data.orders);
       })
       .catch((err) => {
@@ -38,7 +37,6 @@ const OrderHistory = () => {
   const mappedItems = historyItems.map((item) => {
     const date = new Date(item.createdAt).toISOString().substring(0, 10);
     const parsedDate = date.split("-");
-    console.log(date);
     return (
       <div key={item.createdAt}>
         <h4>{item.restaurantName}</h4>

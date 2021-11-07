@@ -11,76 +11,76 @@ const ImagemCarrinho = styled.img`
   height: 117px;
 `;
 const ShopCartCard = () => {
-  const { cart, setCart } = useContext(GlobalStateContext);
-  const removeFromCart = (product) => {
-    const position = cart.findIndex((item) => {
-      return item.id === product.id;
-    });
+    const { cart, setCart } = useContext(GlobalStateContext);
+    const removeFromCart = (product) => {
+        const position = cart.findIndex((item) => {
+            return item.id === product.id;
+        });
 
-    let newCart = [...cart];
+        let newCart = [...cart];
 
-    if (newCart[position].quantity === 1) {
-      newCart.splice(position, 1);
-    } else {
-      newCart[position].quantity -= 1;
+        if (newCart[position].quantity === 1) {
+            newCart.splice(position, 1);
+        } else {
+            newCart[position].quantity -= 1;
+        }
+        setCart(newCart);
+    };
+
+    const addToCart = (product) => {
+        const position = cart.findIndex((item) => {
+            return product.id === item.id
+        })
+
+        let newCart = [...cart]
+
+        if (position === -1) {
+            newCart.push({ ...product, quantity: 1 })
+        } else {
+            newCart[position].quantity += 1
+        }
+        setCart(newCart)
     }
-    setCart(newCart);
-  };
 
-  const addToCart = (product) => {
-    const position = cart.findIndex((item) => {
-        return product.id === item.id
-    })
-
-    let newCart = [...cart]
-
-    if (position === -1) {
-        newCart.push({...product, quantity: 1})
-    } else {
-        newCart[position].quantity += 1
-    }
-    setCart(newCart)
-}
-
-  const renderShopCartCard =
-    cart &&
-    cart.map((product) => {
-      return (
-        <Card sx={{ maxWidth: 345 }} key={product.id}>
-          <CardContainer>
-            <CardMedia
-              component="img"
-              height="140"
-              image={product.photoUrl}
-              alt="Foto produto"
-            />
-            <CardContent>
-              <Div>
-                <ProductDescription>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {product.name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {product.quantity}x
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {product.description}
-                    <RemoveButton>
-                    <button onClick={() => addToCart(product)}>
-                        Adicionar
-                      </button>
-                      <button onClick={() => removeFromCart(product)}>
-                        Remover
-                      </button>
-                    </RemoveButton>
-                  </Typography>
-                </ProductDescription>
-              </Div>
-            </CardContent>
-          </CardContainer>
-        </Card>
-      );
-    });
-  return <div>{renderShopCartCard}</div>;
+    const renderShopCartCard =
+        cart &&
+        cart.map((product) => {
+            return (
+                <Card sx={{ maxWidth: 345 }} key={product.id}>
+                    <CardContainer>
+                        <CardMedia
+                            component="img"
+                            height="140"
+                            image={product.photoUrl}
+                            alt="Foto produto"
+                        />
+                        <CardContent>
+                            <Div>
+                                <ProductDescription>
+                                    <Typography gutterBottom variant="h5" component="div">
+                                        {product.name}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {product.quantity}x
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {product.description}
+                                        <RemoveButton>
+                                            <button onClick={() => addToCart(product)}>
+                                                Adicionar
+                                            </button>
+                                            <button onClick={() => removeFromCart(product)}>
+                                                Remover
+                                            </button>
+                                        </RemoveButton>
+                                    </Typography>
+                                </ProductDescription>
+                            </Div>
+                        </CardContent>
+                    </CardContainer>
+                </Card>
+            );
+        });
+    return <div>{renderShopCartCard}</div>;
 };
 export default ShopCartCard;

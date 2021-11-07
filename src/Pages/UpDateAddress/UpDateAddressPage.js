@@ -47,7 +47,7 @@ const UpDateAddress = () => {
         complement: res.data.address.complement
       })
     }).catch((err) => {
-      console.log("erro", err)
+      console.log(err)
     })
   }
 
@@ -57,7 +57,7 @@ const UpDateAddress = () => {
         auth: `${token}`
       }
     }).then((res) => {
-      console.log("atualizado ", res.data)
+      alert("atualizado ", res.data)
     }).catch((err) => {
       console.log("erro ", err)
     })

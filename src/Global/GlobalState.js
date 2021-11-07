@@ -28,7 +28,7 @@ const GlobalState = (props) => {
     }).then((res)=>{
       setRestaurants(res.data.restaurants)
     }).catch((err)=>{
-      console.log("erro:", err)
+      console.log(err)
     })
 
     setTimeout(() => {
