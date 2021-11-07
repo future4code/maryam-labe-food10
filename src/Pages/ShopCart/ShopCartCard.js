@@ -26,6 +26,22 @@ const ShopCartCard = () => {
     }
     setCart(newCart);
   };
+
+  const addToCart = (product) => {
+    const position = cart.findIndex((item) => {
+        return product.id === item.id
+    })
+
+    let newCart = [...cart]
+
+    if (position === -1) {
+        newCart.push({...product, quantity: 1})
+    } else {
+        newCart[position].quantity += 1
+    }
+    setCart(newCart)
+}
+
   const renderShopCartCard =
     cart &&
     cart.map((product) => {
@@ -50,6 +66,9 @@ const ShopCartCard = () => {
                   <Typography variant="body2" color="text.secondary">
                     {product.description}
                     <RemoveButton>
+                    <button onClick={() => addToCart(product)}>
+                        Adicionar
+                      </button>
                       <button onClick={() => removeFromCart(product)}>
                         Remover
                       </button>
