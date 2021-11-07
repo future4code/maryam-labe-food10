@@ -55,14 +55,9 @@ const PColorWhite = styled.p`
 const Footer = (props) => {
   const [order, setOrder] = useState();
   const params = useParams();
-  console.log("params", params);
 
   const history = useHistory();
 
-  // const activeOrder = useRequestData({}, `${BASE_URL}/active-order`)
-  // // console.log("AQUI", activeOrder.order)
-  // const henderActive = activeOrder && activeOrder.order.totalPrice
-  // console.log(henderActive)
   useEffect(() => {
     axios
       .get(`${BASE_URL}/active-order`, {

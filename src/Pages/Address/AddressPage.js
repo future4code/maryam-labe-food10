@@ -37,7 +37,7 @@ const AddressPage = () => {
             clear()
             goToFeed(history)
         }).catch((err)=>{
-            console.log("erro", err)
+            console.log(err)
         })
     }
     return (

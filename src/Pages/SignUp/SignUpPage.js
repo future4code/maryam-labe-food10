@@ -7,7 +7,6 @@ import axios from "axios";
 import { goToAddress } from "../../Router/Coordinator";
 import { useHistory } from "react-router";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
-// import { BASE_URL } from "../../Constants/urls";
 import {BASE_URL} from '../../constants/urls'
 import Header from "../../Header/Header";
 
@@ -35,13 +34,12 @@ const SignUpPage = () => {
         axios
             .post(`${BASE_URL}/signup`, form)
             .then((res) => {
-                console.log(res.data);
                 localStorage.setItem("token", res.data.token);
                 clear();
                 goToAddress(history);
             })
             .catch((err) => {
-                console.log("deu erro", err);
+                console.log(err);
             });
     };
     return (

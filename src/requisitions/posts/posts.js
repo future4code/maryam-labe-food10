@@ -12,7 +12,10 @@ export const acceptBuy = (restaurantId, body) => {
     .then((response) => {
         alert("O pedido foi realizado com sucesso")
     }).catch((error) => {
-        console.log("erro no post ", error.response.data.message)
-        alert(error.response.data.message)
+        if (error.response.data.message === "Produto não encontrado") {
+            return alert("Pedidos apenas de um restaurante por vez")
+        } else {
+            alert(error.response.data.message)
+        }
     })
 } 

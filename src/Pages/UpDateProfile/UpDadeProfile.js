@@ -48,7 +48,7 @@ const UpDateProfile = () => {
             headers:{
                 auth: `${token}`
             }}).then((res) => {
-                console.log("atualizado ", res.data)
+                alert("Atualizado")
             }).catch((err)=>{
                 console.log("erro ", err)
             })
