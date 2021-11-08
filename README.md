@@ -5,4 +5,4 @@ Eduardo Henrique Sousa Moraes <br>
 Leonardo Fernandes Martins <br>
 Gabriel Luiz Gonçalves <br>
 
-<p>Conheça o <a src="http://keen-food.surge.sh/">Rappid$D</a></p>
+<p>Conheça o <a href="http://keen-food.surge.sh/">Rappid4D</a></p>
