@@ -9,7 +9,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px gray solid;
-  padding: 6px;
+  /* padding: 6px; */
+  width: 100vw;
+  margin: 0px;
 `;
 const P = styled.p`
   margin: 0px 20px;

@@ -14,6 +14,10 @@ const Div = styled.div`
 display: flex;
 justify-content: space-between;
 `
+const DivCard = styled.div`
+margin: 20px 0px;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.23);
+`
 
 const RestaurantCard = (props) => {
   const [restaurants, setRestaurants] = useState()
@@ -36,7 +40,7 @@ const RestaurantCard = (props) => {
   })
 
   const renderRestaurants = selectedRestaurants && selectedRestaurants.length !== 0 && selectedRestaurants.map((restaurant) => {
-    return <Card sx={{ maxWidth: 345 }}
+    return <DivCard><Card sx={{ width: '90vw' }}
       onClick={() => goToRestaurants(history, restaurant.id)}
       key={restaurant.id}
     >
@@ -59,7 +63,7 @@ const RestaurantCard = (props) => {
           </Typography>
         </Div>
       </CardContent>
-    </Card>
+    </Card></DivCard>
   })
 
   return (
