@@ -4,7 +4,7 @@ import GlobalStateContext from '../../Global/GlobalStateContext'
 import { acceptBuy } from '../../requisitions/posts/posts'
 import { Button } from '@material-ui/core'
 import styled from 'styled-components'
-
+import { SettingsApplicationsRounded } from '@material-ui/icons'
 
 const DivButton = styled.div`
 display: flex;
@@ -22,6 +22,7 @@ align-items: center;
 
 const ShopCardForm = () => {
 
+    const {setCart} = useContext(GlobalStateContext)
     const {restaurantId} = useContext(GlobalStateContext)
     const {confirmBuy, setConfirmBuy} = useContext(GlobalStateContext)
 
@@ -37,6 +38,7 @@ const ShopCardForm = () => {
     const buy = (e) => {
         e.preventDefault()
         acceptBuy(restaurantId, confirmBuy)
+        setCart([])
     }
 
     return (
