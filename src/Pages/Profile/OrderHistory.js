@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import useProtectedPage from "../../Hooks/useProtectedPage";
 import Footer from "../../Footer/Footer";
 import { DivHistory, CardHistory } from "./styled";
 

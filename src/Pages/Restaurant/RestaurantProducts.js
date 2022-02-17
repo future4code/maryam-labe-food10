@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import useRequestData from '../../hooks/useRequestData'
+import useRequestData from '../../Hooks/useRequestData'
 import { BASE_URL } from '../../constants/urls'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import { Typography } from '@material-ui/core'

@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
 import Header from "../../Header/Header";
-import useForm from "../../hooks/useForm";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import useForm from "../../Hooks/useForm";
+import useProtectedPage from "../../Hooks/useProtectedPage";
 import { goToProfile } from "../../Router/Coordinator";
 import { InputsContainer, ScreenContainer } from "./styled";
 
@@ -68,7 +68,7 @@ const UpDateAddress = () => {
     <Header history={history} title = {"Editar Endereço"}/>
     <ScreenContainer>
       <InputsContainer>
-        
+
         <form onSubmit={onSubmitForm}>
           <TextField
             type={"text"}

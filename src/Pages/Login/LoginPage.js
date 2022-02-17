@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 import Button from "@material-ui/core/Button";
 import { goToSignUp } from "../../Router/Coordinator";
 import { LoginContainer, TextSignUp } from "./styled";
-import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
 import InitialLoading from "../../components/InitialLoading/InitialLoadingPage";
 
 const LoginPage = () => {

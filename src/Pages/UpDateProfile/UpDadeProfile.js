@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
 import Header from "../../Header/Header";
-import useForm from "../../hooks/useForm";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import useForm from "../../Hooks/useForm";
+import useProtectedPage from "../../Hooks/useProtectedPage";
 import { goToProfile } from "../../Router/Coordinator";
 import { InputsContainer, ScreenContainer } from "./styled";
 
@@ -17,7 +17,7 @@ const UpDateProfile = () => {
         email: "",
         cpf: ""
     })
-   
+
     const history =useHistory()
     const token = localStorage.getItem('token')
     const onSubmitForm = (event) => {
@@ -42,7 +42,7 @@ const UpDateProfile = () => {
                 console.log("erro", err)
             })
     }
-    
+
     const upDate = () => {
         axios.put(`${BASE_URL}/profile`, form, {
             headers:{
@@ -60,7 +60,7 @@ const UpDateProfile = () => {
         <ScreenContainer>
             <InputsContainer>
                 <form onSubmit={onSubmitForm}>
-                    <TextField 
+                    <TextField
                         type={"text"}
                         name={"name"}
                         value={form.name}

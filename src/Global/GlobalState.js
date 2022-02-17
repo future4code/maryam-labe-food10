@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import useRequestData from "../hooks/useRequestData";
+import useRequestData from "../Hooks/useRequestData";
 import { BASE_URL } from "../constants/urls";
 import GlobalStateContext from "./GlobalStateContext";
 import InitialLoading from "../components/InitialLoading/InitialLoadingPage";
 import axios from "axios";
 const GlobalState = (props) => {
- 
+
 
   const [cart, setCart] = useState([]);
   const [restaurants, setRestaurants] = useState([]);

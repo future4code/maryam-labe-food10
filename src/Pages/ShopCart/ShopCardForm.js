@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import useForm from '../../hooks/useForm'
+import useForm from '../../Hooks/useForm'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import { acceptBuy } from '../../requisitions/posts/posts'
 import { Button } from '@material-ui/core'
@@ -45,7 +45,7 @@ const ShopCardForm = () => {
         <div>
             <form onSubmit={buy}>
                 {/* <label for='dinheiro'><span>Dinheiro</span></label> */}
-                <input 
+                <input
                     type='radio'
                     name='paymentMethod'
                     id='dinheiro'
@@ -55,7 +55,7 @@ const ShopCardForm = () => {
                 <label for='dinheiro'><span>Dinheiro</span></label> <br/>
 
                 {/* <label for='cartão de crédito'><span>Cartão de crédito</span></label> */}
-                <input 
+                <input
                     type='radio'
                     name='paymentMethod'
                     id='cartão de crédito'
@@ -79,4 +79,4 @@ const ShopCardForm = () => {
     )
 }
 
-export default ShopCardForm 
+export default ShopCardForm

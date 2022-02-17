@@ -1,12 +1,12 @@
 import { Button, TextField } from "@material-ui/core";
 import React from "react";
-import useForm from "../../hooks/useForm";
+import useForm from "../../Hooks/useForm";
 import logoFutureEatsInvert from "../../assets/logoFutureEatsInvert.png";
 import { ScreenContainer, InputsContainer, TextSignUp } from "./styled";
 import axios from "axios";
 import { goToAddress } from "../../Router/Coordinator";
 import { useHistory } from "react-router";
-import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
 import {BASE_URL} from '../../constants/urls'
 import Header from "../../Header/Header";
 

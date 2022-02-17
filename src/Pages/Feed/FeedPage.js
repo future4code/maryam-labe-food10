@@ -1,11 +1,11 @@
 import React, {useContext, useEffect} from 'react'
-import useRequestData from '../../hooks/useRequestData'
+import useRequestData from '../../Hooks/useRequestData'
 import RestaurantCard from './RestaurantCard'
-import useForm from '../../hooks/useForm'
+import useForm from '../../Hooks/useForm'
 import { Box } from '@material-ui/core'
 import { TextField } from '@material-ui/core'
 import Footer from '../../Footer/Footer'
-import useProtectedPage from '../../hooks/useProtectedPage'
+import useProtectedPage from '../../Hooks/useProtectedPage'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 import Header from '../../Header/Header'
 import { useHistory } from 'react-router'
@@ -55,13 +55,13 @@ const FeedPage = () => {
                 noValidate
                 autoComplete="off"
             >
-                <TextField 
+                <TextField
                     id="outlined-basic"
                     name='search'
                     value={form.search}
                     onChange={onChangeInput}
-                    label="Busca" 
-                    variant="outlined" 
+                    label="Busca"
+                    variant="outlined"
                     onClick={form.search ? null : () => renderOptions()}
                 />
             </Box>

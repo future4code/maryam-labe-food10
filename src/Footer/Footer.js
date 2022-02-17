@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { BASE_URL } from "../constants/urls";
-import useRequestData from "../hooks/useRequestData";
+import useRequestData from "../Hooks/useRequestData";
 import { goToFeed, goToProfile, goToShopCart } from "../Router/Coordinator";
 import homeLaranja from "../assets/homeLaranja.png";
 import home from "../assets/home.png";
@@ -88,8 +88,8 @@ const Footer = (props) => {
         </OrderAlert>
       )}
       {/* <div>
-                  <p>{activeOrder && activeOrder.order.totalPrice}</p> 
-                <p>{activeOrder && activeOrder.order.restaurantName}</p>  
+                  <p>{activeOrder && activeOrder.order.totalPrice}</p>
+                <p>{activeOrder && activeOrder.order.restaurantName}</p>
             </div> */}
       {/* {henderActive && henderActive} */}
       <NavBar>

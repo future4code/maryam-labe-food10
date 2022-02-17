@@ -1,32 +1,32 @@
 import React from 'react'
 import { ScreenContainer, InputsContainer } from './styled'
-import useForm from '../../hooks/useForm'
+import useForm from '../../Hooks/useForm'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { Button, TextField } from '@material-ui/core'
 import { goToFeed } from '../../Router/Coordinator'
 import { useHistory } from 'react-router'
 
-import useProtectedPage from '../../hooks/useProtectedPage'
+import useProtectedPage from '../../Hooks/useProtectedPage'
 
 const AddressPage = () => {
     useProtectedPage()
     const token = localStorage.getItem("token")
-    const [form, onChange, clear] = useForm({ 
-        street: "", 
-        number: "", 
-        neighbourhood: "", 
+    const [form, onChange, clear] = useForm({
+        street: "",
+        number: "",
+        neighbourhood: "",
         city: "",
         state: "",
         complement: ""
     })
-    
+
     const history = useHistory()
 
     const onSubmitForm = (event) => {
         event.preventDefault()
         addAddress()
-    } 
+    }
     const addAddress = () => {
         axios.put(`${BASE_URL}/address`, form, {
             headers:{
